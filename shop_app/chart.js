@@ -1,4 +1,4 @@
-function updateCart() {
+﻿function updateCart() {
     var tbody = document.getElementById('cart-items');
     tbody.innerHTML = '';
 
