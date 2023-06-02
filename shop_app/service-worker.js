@@ -2,13 +2,13 @@ var dataCacheName = 'shop_app_v1';
 var cacheName = 'shop_app';
 var filesToCache = [
   '/',
-  '/index.html',
-  '/chart.js',
-  '/style.css',
-  '/battery.png',
-  '/bicycle.png',
-  '/motocross_bike.png',
-  '/police_motorbike.png',
+  'index.html',
+  'chart.js',
+  'style.css',
+  'battery.png',
+  'bicycle.png',
+  'motocross_bike.png',
+  'police_motorbike.png',
 
 ];
 
