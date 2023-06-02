@@ -49,12 +49,29 @@ window.addEventListener('beforeinstallprompt', (event) => {
     showAddToHomeScreenButton(); // 在 beforeinstallprompt 事件觸發時顯示按鈕
 });
 
+// 使用者互動事件觸發 A2HS 提示
+document.addEventListener('click', () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice
+            .then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt.');
+                } else {
+                    console.log('User dismissed the A2HS prompt.');
+                }
+                deferredPrompt = null;
+            });
+        //deferredPrompt = null;
+    }
+});
+
 // 顯示浮動按鈕
 function showAddToHomeScreenButton() {
     const floatButton = document.getElementById('a2hs-float-button');
     floatButton.style.display = 'block';
 
-    floatButton.addEventListener('click', () => {
+   /* floatButton.addEventListener('click', () => {
         if (deferredPrompt) {
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then((choiceResult) => {
@@ -66,5 +83,5 @@ function showAddToHomeScreenButton() {
                 deferredPrompt = null;
             });
         }
-    });
+    });*/
 }
