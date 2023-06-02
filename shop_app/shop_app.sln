@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{777419D3-FEB0-4002-9B3C-6D273668E35C}"
+	ProjectSection(SolutionItems) = preProject
+		chart.js = chart.js
+		index.html = index.html
+		shop_app.sln = shop_app.sln
+		style.css = style.css
+		battery.png = battery.png
+		bicycle.png = bicycle.png
+		motocross_bike.png = motocross_bike.png
+		police_motorbike.png = police_motorbike.png
+		manifest.json = manifest.json
+		service-worker.js = service-worker.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "icons", "icons", "{9A5FB497-9EEB-4A03-B4D7-29CCBE66117C}"
+	ProjectSection(SolutionItems) = preProject
+		icon-128x128.png = icon-128x128.png
+		icon-144x144.png = icon-144x144.png
+		icon-152x152.png = icon-152x152.png
+		icon-192x192.png = icon-192x192.png
+		icon-256x256.png = icon-256x256.png
+		icon-32x32.png = icon-32x32.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37EA1117-30C1-4AFC-8745-3B98120F225A}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A5FB497-9EEB-4A03-B4D7-29CCBE66117C} = {777419D3-FEB0-4002-9B3C-6D273668E35C}
+	EndGlobalSection
+EndGlobal
