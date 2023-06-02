@@ -25,6 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "icons", "icons", "{9A5FB497
 		icon-192x192.png = icon-192x192.png
 		icon-256x256.png = icon-256x256.png
 		icon-32x32.png = icon-32x32.png
+		icons\icon-512x512.png = icons\icon-512x512.png
 	EndProjectSection
 EndProject
 Global
