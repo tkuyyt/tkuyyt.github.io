@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>購物網站</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!--link rel="manifest" href="manifest.webmanifest"-->
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SHOP APP">
+    <meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#A7CCED">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="icons/icon-152x152.png">
+
+</head>
+<body>
+
+    <div>
+        <div id="a2hs-float-button" class="float-button">add</div>
+    </div>
+
+    <div id="container">
+        <div class="product">
+            <input type="radio" class="product-radio" name="product">
+            <img src="battery.png" alt="Product 1">
+            <h3>Battery</h3>
+            <p>Price: $10</p>
+            <input type="number" min="1" value="1">
+        </div>
+        <div class="product">
+            <input type="radio" class="product-radio" name="product">
+            <img src="bicycle.png" alt="Product 2">
+            <h3>Bick</h3>
+            <p>Price: $15</p>
+            <input type="number" min="1" value="1">
+        </div>
+        <div class="product">
+            <input type="radio" class="product-radio" name="product">
+            <img src="motocross_bike.png" alt="Product 3">
+            <h3>Motocross bike</h3>
+            <p>Price: $20</p>
+            <input type="number" min="1" value="1">
+        </div>
+        <div class="product">
+            <input type="radio" class="product-radio" name="product">
+            <img src="police_motorbike.png" alt="Product 4">
+            <h3>Motor bike</h3>
+            <p>價格: $25</p>
+            <input type="number" min="1" value="1">
+        </div>
+
+        <table id="cart">
+            <thead>
+                <tr>
+                    <th>商品名稱</th>
+                    <th>價格</th>
+                    <th>購買數量</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- 被勾選的商品和購買數量將在這裡動態產生 -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="chart.js"></script>
+    <!--<script>if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker 注冊成功：', registration);
+                })
+                .catch(error => {
+                    console.log('Service Worker 注冊失敗：', error);
+                });
+        }</script>-->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(function (registration) {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(function (error) {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }</script>
+</body>
+</html>
