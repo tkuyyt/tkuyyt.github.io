@@ -66,6 +66,18 @@ document.addEventListener('click', () => {
     }
 });
 
+// 假設您有一個「安裝」按鈕元素
+const installButton = document.getElementById('a2hs-button');
+
+// 監聽「安裝」按鈕的點擊事件，觸發安裝提示
+installButton.addEventListener('click', () => {
+  // 檢查是否存在 `beforeinstallprompt` 事件
+  if (window.beforeinstallprompt) {
+    // 觸發安裝提示
+    window.beforeinstallprompt.prompt();
+  }
+});
+
 // 顯示浮動按鈕
 function showAddToHomeScreenButton() {
     const floatButton = document.getElementById('a2hs-button');
