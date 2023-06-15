@@ -50,40 +50,30 @@ window.addEventListener('beforeinstallprompt', (event) => {
 });
 
 // 使用者互動事件觸發 A2HS 提示
-document.addEventListener('click', () => {
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice
-            .then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt.');
-                } else {
-                    console.log('User dismissed the A2HS prompt.');
-                }
-                deferredPrompt = null;
-            });
-        //deferredPrompt = null;
-    }
-});
+// document.addEventListener('click', () => {
+//     if (deferredPrompt) {
+//         deferredPrompt.prompt();
+//         deferredPrompt.userChoice
+//             .then((choiceResult) => {
+//                 if (choiceResult.outcome === 'accepted') {
+//                     console.log('User accepted the A2HS prompt.');
+//                 } else {
+//                     console.log('User dismissed the A2HS prompt.');
+//                 }
+//                 deferredPrompt = null;
+//             });
+//         //deferredPrompt = null;
+//     }
+// });
 
-// 假設您有一個「安裝」按鈕元素
-const installButton = document.getElementById('a2hs-button');
 
-// 監聽「安裝」按鈕的點擊事件，觸發安裝提示
-installButton.addEventListener('click', () => {
-  // 檢查是否存在 `beforeinstallprompt` 事件
-  if (window.beforeinstallprompt) {
-    // 觸發安裝提示
-    window.beforeinstallprompt.prompt();
-  }
-});
 
 // 顯示浮動按鈕
-function showAddToHomeScreenButton() {
+function showAddToHomeScreenButton(e) {
     const floatButton = document.getElementById('a2hs-button');
     floatButton.style.display = 'block';
 
-   /* floatButton.addEventListener('click', () => {
+    floatButton.addEventListener('click', () => {
         if (deferredPrompt) {
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then((choiceResult) => {
@@ -95,5 +85,18 @@ function showAddToHomeScreenButton() {
                 deferredPrompt = null;
             });
         }
-    });*/
+    });
+    
+    // 假設您有一個「安裝」按鈕元素
+//     const installButton = document.getElementById('a2hs-button');
+    
+//     // 監聽「安裝」按鈕的點擊事件，觸發安裝提示
+//     installButton.addEventListener('click', () => {
+//       // 檢查是否存在 `beforeinstallprompt` 事件
+//       if (window.beforeinstallprompt) {
+//         // 觸發安裝提示
+//         window.beforeinstallprompt.prompt();
+//       }
+//     });
+    
 }
