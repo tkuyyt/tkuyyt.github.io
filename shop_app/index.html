@@ -71,6 +71,35 @@
         </table>
     </div>
 
+    <script>
+      if ('addEventListener' in document) {
+        window.addEventListener('load', function() {
+          var promptEvent;
+
+          window.addEventListener('beforeinstallprompt', function(e) {
+            e.preventDefault();
+            promptEvent = e;
+            // 這裡可以顯示自定義的安裝提示 UI
+            showAddToHomeScreenUI();
+          });
+
+          function showAddToHomeScreenUI() {
+            // 顯示自定義的安裝提示 UI，例如顯示一個彈出視窗或浮動按鈕
+            // 使用者點擊該 UI 時，執行以下程式碼：
+            promptEvent.prompt();
+            promptEvent.userChoice.then(function(choiceResult) {
+              if (choiceResult.outcome === 'accepted') {
+                console.log('使用者已安裝 PWA');
+              } else {
+                console.log('使用者取消安裝 PWA');
+              }
+              promptEvent = null;
+            });
+          }
+        });
+      }
+    </script>
+    
     <script src="chart.js"></script>
     <!--<script>if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
