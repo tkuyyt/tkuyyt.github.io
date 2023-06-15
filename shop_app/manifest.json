@@ -1,6 +1,6 @@
 ﻿{
     "name": "MY SHOP",
-    "short_name": "myShopApp",,
+    "short_name": "myShopApp",
     "start_url": "/shop_app/",
     "display": "standalone",
     "background_color": "#3E4EB8",
