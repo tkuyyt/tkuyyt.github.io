@@ -71,7 +71,7 @@
         </table>
     </div>
 
-    <script>
+    <!-- <script>
       if ('addEventListener' in document) {
         window.addEventListener('load', function() {
           var promptEvent;
@@ -98,9 +98,40 @@
           }
         });
       }
+    </script> -->
+
+    <script>        
+        let deferredPrompt; // 宣告 deferredPrompt 變數
+
+        window.addEventListener('beforeinstallprompt', (event) => {
+            event.preventDefault();
+            deferredPrompt = event;
+            showAddToHomeScreenButton(); // 在 beforeinstallprompt 事件觸發時顯示按鈕
+        });
+        
+        // 使用者互動事件觸發 A2HS 提示
+        document.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice
+                    .then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the A2HS prompt.');
+                        } else {
+                            console.log('User dismissed the A2HS prompt.');
+                        }
+                        deferredPrompt = null;
+                    });
+            }
+        });
+
+        
+        // 顯示浮動按鈕
+        function showAddToHomeScreenButton(e) {
+            const floatButton = document.getElementById('a2hs-button');
+            floatButton.style.display = 'block';
+        }
     </script>
-    
-    <script src="chart.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
@@ -112,7 +143,12 @@
                         console.log('Service Worker registration failed:', error);
                     });
             });
-        }</script>
+        }
+    </script>
+
+    
+    <script src="chart.js"></script>
+
     <script 
             src="https://tkuyyt.github.io/shop_app/"
             crossorigin="anonymous"

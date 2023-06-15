@@ -41,30 +41,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-let deferredPrompt; // 宣告 deferredPrompt 變數
-
-window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
-    deferredPrompt = event;
-    showAddToHomeScreenButton(); // 在 beforeinstallprompt 事件觸發時顯示按鈕
-});
 
 // 顯示浮動按鈕
-function showAddToHomeScreenButton(e) {
-    const floatButton = document.getElementById('a2hs-button');
-    floatButton.style.display = 'block';
+// function showAddToHomeScreenButton(e) {
+//     const floatButton = document.getElementById('a2hs-button');
+//     floatButton.style.display = 'block';
 
-    floatButton.addEventListener('click', () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt.');
-                } else {
-                    console.log('User dismissed the A2HS prompt.');
-                }
-                deferredPrompt = null;
-            });
-        }
-    });    
+//     floatButton.addEventListener('click', () => {
+//         if (deferredPrompt) {
+//             deferredPrompt.prompt();
+//             deferredPrompt.userChoice.then((choiceResult) => {
+//                 if (choiceResult.outcome === 'accepted') {
+//                     console.log('User accepted the A2HS prompt.');
+//                 } else {
+//                     console.log('User dismissed the A2HS prompt.');
+//                 }
+//                 deferredPrompt = null;
+//             });
+//         }
+//     });    
 }
