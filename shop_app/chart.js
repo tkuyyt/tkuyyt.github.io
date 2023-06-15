@@ -68,7 +68,7 @@ document.addEventListener('click', () => {
 
 // 顯示浮動按鈕
 function showAddToHomeScreenButton() {
-    const floatButton = document.getElementById('a2hs-float-button');
+    const floatButton = document.getElementById('a2hs-button');
     floatButton.style.display = 'block';
 
    /* floatButton.addEventListener('click', () => {
