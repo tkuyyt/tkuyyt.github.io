@@ -39,25 +39,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
-
-// 顯示浮動按鈕
-// function showAddToHomeScreenButton(e) {
-//     const floatButton = document.getElementById('a2hs-button');
-//     floatButton.style.display = 'block';
-
-//     floatButton.addEventListener('click', () => {
-//         if (deferredPrompt) {
-//             deferredPrompt.prompt();
-//             deferredPrompt.userChoice.then((choiceResult) => {
-//                 if (choiceResult.outcome === 'accepted') {
-//                     console.log('User accepted the A2HS prompt.');
-//                 } else {
-//                     console.log('User dismissed the A2HS prompt.');
-//                 }
-//                 deferredPrompt = null;
-//             });
-//         }
-//     });    
-}
