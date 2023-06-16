@@ -1,4 +1,3 @@
-﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -107,14 +106,16 @@
             // 使用者點擊該 UI 時，執行以下程式碼：
               if(promptEvent){
                 promptEvent.prompt();
-                promptEvent.userChoice.then(function(choiceResult) {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('使用者已安裝 PWA');
-                } else {
-                    console.log('使用者取消安裝 PWA');
-                }
-                promptEvent = null;
-              }
+                promptEvent.userChoice.then(
+                    function(choiceResult) {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('使用者已安裝 PWA');
+                        } else {
+                            console.log('使用者取消安裝 PWA');
+                        }
+                        promptEvent = null;
+                    }
+                )
             });
           }
       }
