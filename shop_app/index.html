@@ -72,31 +72,51 @@
     </div>
 
     <script>
+      var promptEvent;
+      //要顯示prompt 的延遲
+      var showTime = 30*1000;
+        
       if ('addEventListener' in document) {
-        window.addEventListener('load', function() {
-          var promptEvent;
-
           window.addEventListener('beforeinstallprompt', function(e) {
             e.preventDefault();
             promptEvent = e;
+              
+            var data = navigator.userAgent.match(/Chrom(e|ium)\\/([0-9]+)\\./);
+            var version = (data && data.length >= 2) ? parseInt(data[2], 10) : null;
+            if (version && installPromptEvent.prompt) {
+                // 延遲一段時間才顯示 prompt
+                setTimeout(function() {
+                // 如果 Chrome 版本是 67（含）以下，可以直接呼叫
+                    if (version <= 67) {
+                        installPromptEvent.prompt();
+                        return;
+                    }
+
+                    // 否則的話必須透過 user action 主動觸發
+                    // 這邊幫 #root 加上 event listener，代表點擊螢幕任何一處都會顯示 prompt
+                    document.querySelector('#root').addEventListener('click', addToHomeScreen);
+                }, showTime);
+            }
+              
             // 這裡可以顯示自定義的安裝提示 UI
             showAddToHomeScreenUI();
           });
 
-          function showAddToHomeScreenUI() {
+          function showAddToHomeScreenUI(e) {
             // 顯示自定義的安裝提示 UI，例如顯示一個彈出視窗或浮動按鈕
             // 使用者點擊該 UI 時，執行以下程式碼：
-            promptEvent.prompt();
-            promptEvent.userChoice.then(function(choiceResult) {
-              if (choiceResult.outcome === 'accepted') {
-                console.log('使用者已安裝 PWA');
-              } else {
-                console.log('使用者取消安裝 PWA');
+              if(promptEvent){
+                promptEvent.prompt();
+                promptEvent.userChoice.then(function(choiceResult) {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('使用者已安裝 PWA');
+                } else {
+                    console.log('使用者取消安裝 PWA');
+                }
+                promptEvent = null;
               }
-              promptEvent = null;
             });
           }
-        });
       }
     </script>
     
@@ -114,8 +134,8 @@
             });
         }</script>
     <script 
-            src="https://tkuyyt.github.io/shop_app/"
-            crossorigin="anonymous"
-            ></script>
+        src="https://tkuyyt.github.io/shop_app/"
+        crossorigin="anonymous"
+    ></script>
 </body>
 </html>
